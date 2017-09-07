@@ -58,3 +58,31 @@ npm install html-webpack-plugin --save-dev
 ```
 npm install webpack-dev-server --save-dev
 ```
+
+
+## 基础webpack用法
+```
+npm install webpack babel-core babel-loader babel-preset-es2015 babel-preset-stage-0 css-loader style-loader less-loader sass-loader less file-loader url-loader html-webpack-plugin webpack-dev-server --save-dev
+```
+
+> .vue文件需要基于webpack构建的,vue-cli 脚手架
+
+## vue-cli用法
+- 安装vue-cli 命令行工具,安装后命令行中会多一个vue的命令
+```
+npm install vue-cli -g
+```
+
+```
+vue init 模板名 项目名
+cd 项目中
+npm install
+npm run dev
+```
+
+## 更改项目端口号
+```
+config/index.js
+```
+
+

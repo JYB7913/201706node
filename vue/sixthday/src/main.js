@@ -11,3 +11,7 @@ let obj3 = {...obj1,...obj2};
 //在js中引入css样式
 import './index.css';
 import './style.less';
+import img from './1.jpg';
+let oImg = document.createElement('img');
+oImg.src=img;
+document.body.appendChild(oImg);

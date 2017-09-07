@@ -35,3 +35,26 @@ npm install css-loader style-loader --save-dev
 ```
 npm install less less-loader --save-dev
 ```
+
+## 解析图片
+- 如果使用js引入图片默认不会进行打包文件,如果是背景图片他会去打包
+```
+npm install file-loader url-loader --save-dev
+```
+
+> 在js中引用图片 需要使用import导入文件
+
+## 打包html以src下的html作为模板将打包后的文件引入
+```
+npm install html-webpack-plugin --save-dev
+```
+
+
+## npm run build
+- 会执行输出实体文件 速度会很慢 (上线时使用run build)
+
+## npm run dev
+- 一般我们会在本地跑一个服务,当文件变化,刷新浏览器
+```
+npm install webpack-dev-server --save-dev
+```

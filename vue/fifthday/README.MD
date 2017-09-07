@@ -11,3 +11,15 @@ npm install vue bootstrap vue-router axios  animate.css --save
 - 多页开发-> 体验效果，没有实现复用，每次都需要重新加载页面
 
 > vue-router实现单页开发，不会刷新页面(hash(开发),h5api(上线 后台可以支持))
+
+## 路由使用
+- 一级路由的配置，实现简单的路由跳转
+- 声明式导航 编程式导航($router,push go replace)
+- 路径参数  $route.params (配置404,重定向，默认组件)
+- 子路由 (children 路径不能带/)
+- 实现路由获取数据(在组件中created,在beforeRouterEnter方法中获取) keep-alive可以缓存数据（让组件不销毁）
+- 权限判断 router.beforeEach
+- 实现动画效果
+- 当路径参数变化可以在watch监控参数变化获取数据
+
+## webpack+vue-cli(项目工程化)

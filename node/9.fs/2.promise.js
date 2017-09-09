@@ -25,8 +25,9 @@ Promise.resolve([1,2,3]).then(function (data) {
 }).catch(function (err) {
     console.log(err)
 });*/
-/*
+
 let obj = {}; //回调地狱 链式调用
+//如果返回的是promise会调用promise的resolve，或者reject，如果成功了会放到下一个then的参数中，如果返回的不是promise那then中的结果就上一次的返回值
 read('name.txt').then(function (data) {
     obj.name = data;
     return read('age.txt');//如果返回一个promise可以继续调用then方法
@@ -38,7 +39,7 @@ read('name.txt').then(function (data) {
 }).catch(function (err) { //不管谁报错了都会走到catch中
     console.log(err);
 });
-*/
+
 
 
 

@@ -2,7 +2,7 @@
 import Vue from 'vue';
 // 每一个组件都是.vue文件
 import App from './App.vue';
-console.log(App)
+console.log(App);
 import router from './router'; // 文件名叫index.js则可以省略
 // runtime 中 不识别template
 // runtime 只支持render方法

@@ -31,3 +31,36 @@ var buffer = new Buffer([1,2,3,4]);
 var newBuffer = buffer.slice(0,1);//buffer中存放的都是内存地址，所以slice不会返回一个新的buffer
 newBuffer[0] = 100;
 console.log(buffer);
+
+//buffer copy
+var buf1 = new Buffer('珠峰');
+var buf2 = new Buffer('培训');
+var bigBuffer = new Buffer(12);
+// targetBuffer目标buffer, targetStart,目标的开始 sourceStart,源的开始 sourceEnd 源的结束 ,copy操作按照的是buffer的长度（字节长度）
+buf1.copy(bigBuffer,0); //0-6
+buf2.copy(bigBuffer,buf1.length);
+console.log(bigBuffer.toString());//可以调用toString方法转化成字符
+
+//Buffer concat
+//console.log(Buffer.concat([buf1,buf2,buf2,buf2],100).toString());
+
+Buffer.myConcat = function (list,totaLength) {
+    // 看totalLength是否传递，如果传递了用传递的长度构建一个大buffer
+    // 如果没长度 循环list 算出总长度，构建一个大buffer
+    // 循环list将每一个小buffer拷贝到大buffer上
+    // 如果长度过长，截取有效的长度
+    // 返回大buffer
+    if(typeof totaLength === 'undefined'){
+        totaLength = list.reduce((prev,next)=>{
+            return prev+next.length
+        },0);
+    }
+    let buffer = new Buffer(totaLength);
+    let index = 0;
+    list.forEach(buff=>{
+        buff.copy(buffer,index);
+        index+=buff.length;
+    });
+    return buffer.slice(0,index);
+};
+console.log(Buffer.myConcat([buf1,buf2],100).toString());

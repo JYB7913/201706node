@@ -1,6 +1,6 @@
 let EventEmitter = require('events');
 let util = require('util');
-util.inherits(Man,EventEmitter);
+util.inherits(Man,EventEmitter);//继承
 function Man() {}
 let man = new Man();
 function findGirl(a) {console.log('找新女朋友',a)}

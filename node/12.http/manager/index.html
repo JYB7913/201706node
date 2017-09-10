@@ -61,7 +61,9 @@
     function showList(data) {
         let str = '';
         data.forEach(item => {
-            str += `<li class="list-group-item">姓名:${item.username} 密码:${item.password}</li>`;
+            str += `<li class="list-group-item">姓名:${item.username} 密码:${item.password}
+                    <button class="btn btn-danger" data-uid="${item.id}">&times;</button>
+            </li>`;
         });//循环数据将数据展示到ul里
         oUl.innerHTML = str;
     }
@@ -74,6 +76,13 @@
         fetchUser('post',{username:username.value,password:password.value}).then(data=>{
             showList(data);alert('添加成功');
         })
+    },false);
+    //删除操作
+    oUl.addEventListener('click',function (e) {
+        if(e.target.tagName === 'BUTTON'){ //e.target.dataset获取当前元素上以data-开头的自定义属性
+            alert(e.target.dataset.uid);
+            // /user?id = 1 更改fetchUser方法 实现可以通过参数传递id，实现删除和修改
+        }
     },false);
 </script>
 </body>
